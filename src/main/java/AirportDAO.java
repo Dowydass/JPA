@@ -1,4 +1,6 @@
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import java.util.ArrayList;
 
@@ -82,6 +84,18 @@ public class AirportDAO {
         entityManager.getTransaction().commit();
         entityManager.close();
     }
+    public static void updateName(Airport airport, int id){
+        EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
 
+        Airport airport1 = entityManager.find(Airport.class, id);
+        airport1.setName(airport.getName());
+        airport1.setAddress(airport.getAddress());
+        airport1.setCity(airport.getCity());
+
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
 
 }
