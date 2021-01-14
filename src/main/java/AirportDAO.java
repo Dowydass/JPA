@@ -14,6 +14,20 @@ public class AirportDAO {
         entityManager.close();
     }
 
+
+    public static ArrayList<Airport> searchById(int id){
+        EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
+        EntityTransaction entityTransaction = entityManager.getTransaction();
+        entityTransaction.begin();
+
+        ArrayList<Airport> airports = (ArrayList<Airport>) entityManager.
+                createQuery("SELECT a FROM Airport a WHERE a.id LIKE :id2").
+                setParameter("id2",id).
+                getResultList();
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return airports;
+    }
     public static ArrayList<Airport> searchByName(String name) {
         EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();

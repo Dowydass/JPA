@@ -7,7 +7,7 @@ public class Airport {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "biz_id")
     private int id;
-    @Column(name = "biz_name")
+    @Column(name = "name")
     private String name;
     @Column(name = "address")
     private String address;
