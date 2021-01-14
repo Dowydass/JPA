@@ -82,4 +82,6 @@ public class AirportDAO {
         entityManager.getTransaction().commit();
         entityManager.close();
     }
+
+
 }
