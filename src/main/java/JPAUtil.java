@@ -12,7 +12,7 @@ public class JPAUtil {
         }
         return factory;
     }
-
+// KOMENTARAS
     public static void shutdown() {
         if (factory != null) {
             factory.close();
